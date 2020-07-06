@@ -1,0 +1,19 @@
+<h1 class="font30">ログイン画面</h1>
+  <div class="login">
+    
+  	<%= form_for(:session, url: login_path) do |f| %>
+        <div class="field">
+          <%= f.label :メールアドレス %><br>
+          <%= f.email_field :email %>
+        </div>
+        <div class="field">
+          <%= f.label :パスワード %><br>
+          <%= f.password_field :password %>
+        </div>
+        <div class="actions">
+          <%= f.submit "ログイン" %>
+        </div>
+      <% end %>
+      
+  </div>    
+  

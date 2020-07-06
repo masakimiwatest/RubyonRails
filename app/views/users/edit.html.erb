@@ -1,0 +1,13 @@
+<% if logged_in? %>
+
+<h1 class="font30">ユーザー情報変更</h1>
+
+<%= render 'form', user: @user %>
+
+
+
+<% else %>
+
+<p class="nologin">ログインしてください</p>
+
+<% end %>

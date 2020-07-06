@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>アニメタスコア</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="header">
+      <a>アニメタスコア</a>
+    </div>
+  　 <div id="nav">
+          <ul>
+            <li><%= link_to 'トップページ', users_path %></li>
+            
+            <li><%= link_to "レビュー一覧", reviews_path %></li>
+            <% if logged_in? %>
+            <li>ユーザー名:<%= current_user.name%></li>
+            <li><%= link_to "マイページ", current_user %></li>
+            <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+            <% else %>
+            <li><%= link_to 'ログイン画面', login_path %></li>
+            <li><%= link_to 'ユーザー登録', new_user_path %></li>
+            <% end %>
+          
+          </ul>
+    </div>
+      </nav>
+        <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
+      <div class="container">
+        <%= yield %>
+      </div>
+  </body>
+</html>
